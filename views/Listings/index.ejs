@@ -1,0 +1,149 @@
+<% layout("/layouts/boilerplate.ejs") %>
+
+<style>
+    #filters
+    {
+        display: flex;
+       flex-wrap: wrap;
+      margin: 5px;
+      align-items: center;
+    
+    }
+    .filter
+    {  
+      margin: 1rem;
+      opacity: 0.7;
+    }
+    .filter:hover
+    {  
+      opacity: 1;
+      cursor: pointer;
+    }
+    .texinfo
+    {
+        display: none;
+    }
+    .textoggle
+    {
+        height: 5vh;
+        width: 35vh;
+        border: 2px solid black;
+        border-radius: 1rem;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        margin-left: 2rem;
+    }
+</style>
+<div id="filters">
+    <div class="filter">
+        <i class="fa-solid fa-fire"></i>
+        <p>Trending</p>
+    </div>
+
+     <div class="filter">
+        <i class="fa-solid fa-bed"></i>
+        <p>Rooms</p>
+    </div>
+    
+     <div class="filter">
+        <i class="fa-solid fa-mountain-city"></i>
+        <p>Iconic city</p>
+    </div>
+     <div class="filter">
+        <i class="fa-solid fa-mountain"></i>
+        <p>Mountains</p>
+    </div>
+    <div class="filter">
+        <i class="fa-brands fa-fort-awesome"></i>
+        <p>Mountains</p>
+    </div>
+      <div class="filter">
+        <i class="fa-solid fa-mountain"></i>
+        <p>Mountains</p>
+    </div>
+    <div class="filter">
+        <i class="fa-brands fa-fort-awesome"></i>
+        <p>Mountains</p>
+    </div>
+
+     <div class="filter">
+       <i class="fa-regular fa-person-swimming"></i>
+        <p>Pools</p>
+    </div>
+
+     <div class="filter">
+       <i class="fa-solid fa-igloo"></i>
+        <p>Iglo</p>
+    </div>
+
+    
+     <div class="filter">
+       <i class="fa-regular fa-person-swimming"></i>
+        <p>Pools</p>
+    </div>
+
+     <div class="filter">
+       <i class="fa-solid fa-igloo"></i>
+        <p>Iglo</p>
+    </div>
+  
+  
+
+    
+    <div class="form-check  form-switch  textoggle">
+    <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+    <label class="form-check-label" for="switchCheckDefault">Display totle after text</label>
+    </div>
+
+    
+</div>
+
+<!-- <h3>allListings</h3> -->
+
+<div class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-2">
+
+<% for(let listing of allListings) { %>
+
+<a href="/listings/<%= listing._id %>" class="mylink">
+
+<div class="card col" style="width: 18rem;">
+<img src="<%= listing.image.url %>" class="card-img-top" alt="listing_image" style="height: 18rem;">
+
+<div class="card-img-overlay"></div>
+
+<div class="card-body">
+<p class="card-text">
+<b><%= listing.title %></b>
+<br>
+&#8360 <%= listing.price ? listing.price.toLocaleString("en-IN") : "0" %>/night
+<i class="texinfo">&nbsp;+18%  gst</i>
+</p>
+</div>
+
+</div>
+</a>
+
+<% } %>
+
+</div>
+<!--  
+//text 18+gst print krana ka logic ->toggle button on krt ahe ->ADDEVENTLITENER sa -->
+<script>
+            let texSwitch = document.getElementById("switchCheckDefault");
+            texSwitch.addEventListener("click",()=>
+            {
+               let texinfo = document.getElementsByClassName("texinfo");
+               for(info of texinfo)
+               {
+                if(info.style.display!="inline"){
+                 info.style.display = "inline";
+              }
+              else{
+                 info.style.display = "none";
+              }
+              
+               }
+            });
+</script>

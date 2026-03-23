@@ -1,0 +1,60 @@
+<% layout("/layouts/boilerplate") %>
+<h3 class="add">add the new listing</h3>
+<div class="row "  >
+
+<form method="post" action="/listings" class="needs-validation" novalidate enctype="multipart/form-data">
+<div class="col-7 offset-3">
+<div class="mb-3">
+<label for="title" class="form-label">Title</label>
+<input name="listing[title]" type="text" class="form-control" required>
+<div class="valid-feedback">   Looks good!     </div>
+
+</div>
+
+<div class="mb-3">
+<label for="description" class="form-label">Description</label>
+<textarea name="listing[description]" class="form-control" required></textarea>
+<div class="invalid-feedback">discription should be sort</div>
+</div>
+
+<!-- <div class="mb-3">
+<label for="image" class="form-label">Image URL</label>
+<input name="listing[image][url]" type="text" class="form-control">
+</div> -->
+
+<div class="mb-3">
+<label for="image" class="form-label"> Upload Image</label>
+<input name="listing[image][url]" type="file" class="form-control" required>
+</div>
+
+<div class="row">
+
+
+<div class="mb-3 col-7" >
+<label for="location" class="form-label">Location</label>
+<input name="listing[location]" type="text" class="form-control" required>
+<div class="invalid-feedback"> please enter a valid location</div>
+</div>
+
+<div class="mb-3 col-5" >
+<label for="country" class="form-label">Country</label>
+<input name="listing[country]" type="text" class="form-control" required>
+<div class="invalid-feedback"> please enter a valid country</div>
+</div>
+
+
+</div>
+
+<div class="mb-3">
+<label for="price" class="form-label">Price</label>
+<input name="listing[price]" type="number" class="form-control" required>
+<div class="invalid-feedback"> please enter a price</div>
+</div>
+
+<button class="btn btn-dark">Submit</button>
+
+</div>
+
+</form>
+
+</div>

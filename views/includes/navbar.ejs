@@ -1,0 +1,61 @@
+<style>
+  .search-btn
+  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 5px;
+    border-radius: 25px;
+    color: red;
+  }
+
+  .search-box
+  {
+    border-radius: 25px;
+    text-align: center;
+    margin: 0.5px 2px 0.5px 2px;
+    margin-right: 10px;
+  }
+
+</style>
+
+<nav class="navbar navbar-expand-md bg-body-tertiary border-bottem sticky-top">
+  <div class="container-fluid">
+  <a href="/listings"> <i class="fa-solid fa-compass" ></i></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link" href="/listings">all listings</a>
+    </div>
+
+      <!-- //search button -->
+       <nav class="navbar bg-body-tertiary ms-auto search">
+        <div class="container-fluid">
+          <form class="d-flex" role="search">
+            <input class="form-control me-2 search-box" type="search" placeholder="Search For Room" aria-label="Search"/>
+            <button class="btn btn-outline-success search-btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
+          </form>
+        </div>
+      </nav>
+
+
+      <!-- //login ho tbhi logout buttun dekha
+      //req.user->locals sa exess krang --> 
+      <!-- //if user login hoga to req.user true aayga else false -->
+      <div class="navbar-nav  ms-auto">
+          <a class="nav-link" href="/listings/new">Become a host</a>
+       <% if(!currUser){ %>
+        <a class="nav-link" aria-current="page" href="/login"><b>Login</b></a>
+        <a class="nav-link" href="/signup"><b>Signup</b></a>
+       <% } %>
+        <% if(currUser){ %>
+       <a class="nav-link" href="/logout">Logout</a>
+       <% } %>
+      </div>
+
+      
+    </div>
+  </div>
+</nav>
