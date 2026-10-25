@@ -18,14 +18,10 @@ module.exports.loggedin = (req, res, next) => {
     next();
 };
 
-module.exports.saveUrl = (req,res,next)=>
-{
-    if(req.session.redirectUrl)
-    {
-        res.locals.redirectUrl = req.session.redirectUrl;
-    }
+module.exports.saveUrl = (req, res, next) => {
+    res.locals.redirectUrl = req.session.redirectUrl || "/listings";
     next();
-}
+};
 
 //kya mera currUser  owner(vhi hai jisna listing creat kiya tha) hai
 module.exports.isowner = async(req,res,next)=>

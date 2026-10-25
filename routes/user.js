@@ -23,9 +23,13 @@ router.route("/login")
         }),
         (req, res) => {
             req.flash("success", "WELCOME BACK TO WONDERLUST :)");
-            let redirectUrl = res.locals.redirectUrl || "/listings";
+
+            const redirectUrl = res.locals.redirectUrl || "/listings";
+
+            delete req.session.redirectUrl;
+
             res.redirect(redirectUrl);
-        }
+}
         );
 
 //user logout ka liya
