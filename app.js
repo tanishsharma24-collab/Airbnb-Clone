@@ -60,7 +60,7 @@ if (!sessionSecret) {
 const store = MongoStore.create({
     mongoUrl: atlasUrl,
     crypto: {
-        secret: sessionSecret
+        secret: process.env.SESSION_SECRET
     },
     touchAfter: 24 * 3600
 });
