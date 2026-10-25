@@ -2,8 +2,7 @@ const express = require("express");
 const router = express.Router();
 const User = require('../models/user.js');
 const passport = require("passport");
-const { saveUrl } = require("../middleware");
-const {loggedin} = require("../middleware.js");
+const { saveUrl, loggedin } = require("../expressMiddleware.js");
 const userController = require("../controllers/user.js")
 
 //signup ka leya form open krna get sa && user signup krna db mai
