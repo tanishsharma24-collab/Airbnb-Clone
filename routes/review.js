@@ -6,7 +6,7 @@ const wrapAsync = require("../utils/wrapAsync.js");
 const { reviewSchema } = require("../joi.js");
 const Listing = require("../models/listing.js");
 const Review = require("../models/review.js");
-const { validatReview ,loggedin ,isauthor }  = require("../middleware.js");
+const { validatReview ,loggedin ,isauthor }  = require("../expressMiddleware.js");
 
 const reviewController = require("../controllers/review.js");
 
